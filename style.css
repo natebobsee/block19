@@ -26,18 +26,9 @@ border-radius: 0.25rem;
 overflow: hidden;
 }
 
-.card-header .card-image {
+.card-header {
 padding: 0;
 overflow: hidden;
-}
-
-.card-header.card-image > img {
-display: block;
-width: 100%;
-max-height: 200px;
-aspect-ratio: 16 / 9;
-object-fit: cover;
-object-position: center;
 }
 
 .card-header {
@@ -57,11 +48,3 @@ margin-top: 1rem;
 padding: 1rem;
 }
 
-.btn {
-background: hsl(200, 50%, 50%);
-color: white;
-border: none;
-padding: 0.5em 0.75em;
-border-radius: 0.25em;
-cursor: pointer;
-}
