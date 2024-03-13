@@ -32,13 +32,9 @@ const dataArray = [
   ];
   
   const titleRef = document.querySelector('.title');
-  
   const average =
     dataArray.reduce((acc, item) => acc + item.revenue, 0) / dataArray.length;
-  
-  const titleText = document.createTextNode(
-    `The avg rate of a freelancer is : ${average} per hour`
-  );
+  const titleText = document.createTextNode(`The avg rate of a freelancer is : ${average} per hour`);
   
   titleRef.appendChild(titleText);
   
