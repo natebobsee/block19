@@ -2,31 +2,31 @@ const dataArray = [
     {
       id: 1,
       title: 'Alice Teacher',
-      text: '50',
+      text: 'Rate: 50',
       revenue: 50,
     },
     {
       id: 2,
       title: 'Ray technician',
-      text: '30',
+      text: 'Rate: 30',
       revenue: 30,
     },
     {
       id: 3,
       title: 'Robert lifeguard',
-      text: '40',
+      text: 'Rate: 40',
       revenue: 40,
     },
     {
       id: 4,
       title: 'Julio architect',
-      text: '70',
+      text: 'Rate: 70',
       revenue: 70,
     },
     {
       id: 5,
       title: 'Keith fireman',
-      text: '60',
+      text: 'Rate: 60',
       revenue: 60,
     },
   ];
