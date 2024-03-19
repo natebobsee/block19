@@ -1,70 +1,70 @@
-const dataArray = [
-    {
-      id: 1,
-      title: 'Alice Teacher',
-      text: 'Rate: 50',
-      revenue: 50,
-    },
-    {
-      id: 2,
-      title: 'Ray technician',
-      text: 'Rate: 30',
-      revenue: 30,
-    },
-    {
-      id: 3,
-      title: 'Robert lifeguard',
-      text: 'Rate: 40',
-      revenue: 40,
-    },
-    {
-      id: 4,
-      title: 'Julio architect',
-      text: 'Rate: 70',
-      revenue: 70,
-    },
-    {
-      id: 5,
-      title: 'Keith fireman',
-      text: 'Rate: 60',
-      revenue: 60,
-    },
-  ];
-  
-  const titleRef = document.querySelector('.title');
-  const average =
-    dataArray.reduce((acc, item) => acc + item.revenue, 0) / dataArray.length;
-  const titleText = document.createTextNode(`The avg rate of a freelancer is : ${average} per hour`);
-  
-  titleRef.appendChild(titleText);
-  
-  function createCard(darray) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    const header = createCardHeader(darray.title);
-    const cardBody = createCardBody(darray.text);
-    card.appendChild(header);
-    card.appendChild(cardBody);
-    const grid = document.querySelector('.content_grid');
-    grid.appendChild(card);
+const inputnumbers = [];
+const oddnumbers = [];
+const evennumbers = [];
+
+
+const numberbank=document.getElementById('outputbank');
+const oddsbank= document.getElementById('oddsbank');
+const evensbank= document.getElementById('evensbank');
+
+
+const form = document.querySelector('form');
+form.addEventListener('submit',addnumber);
+console.log(form)
+
+
+function addnumber(event) {
+  event.preventDefault();
+  const input = document.querySelector('#number')
+  const number= form.elements.number.value
+  const numberbank=document.getElementById('outputbank');
+  //numberbank.push(number);
+  inputnumbers.push(number);
+  console.log(number);
+  numberbank.innerHTML = inputnumbers;
+}
+
+
+const sortallbutton=document.querySelector('#sortAll');
+sortallbutton.addEventListener('click', sortall);
+
+function sortall() {
+  console.log("click")
+  const oddsbank= document.getElementById('oddsbank');
+  const evensbank= document.getElementById('evensbank');
+  const numberbank=document.getElementById('outputbank');
+  //oddsbank.innerHTML = inputnumbers;
+  console.log('hello')
+  //sort even and odd numbers
+  for (let i =0 ; i<inputnumbers.length; i++){
+    let result=inputnumbers[i]%2   
+        if (result===0)
+        evennumbers.push(inputnumbers[i])
+        else
+        oddnumbers.push(inputnumbers[i])
   }
-  function createCardBody(description) {
-    const cardBody = document.createElement('div');
-    const text = document.createTextNode(description);
-    cardBody.className = 'card-body';
-    cardBody.appendChild(text);
-    return cardBody;
+  //reset registers woth moved numbers
+  inputnumbers.splice(0,inputnumbers.length)
+  oddsbank.innerHTML = oddnumbers;
+  evensbank.innerHTML = evennumbers;
+  numberbank.innerHTML = inputnumbers;
+}
+const sortonebutton=document.querySelector('#sortOne');
+sortonebutton.addEventListener('click', sortone);
+console.log(sortonebutton);
+
+function sortone() {
+const numberbank=document.getElementById('outputbank');
+console.log("opo")
+//only sort the first element
+let result=inputnumbers[0]%2 
+if (result===0)
+   evennumbers.push(inputnumbers[0])
+else
+   oddnumbers.push(inputnumbers[0])
+   //remove first element from bank and repost
+   inputnumbers.splice(0,1)
+   oddsbank.innerHTML = oddnumbers;
+   evensbank.innerHTML = evennumbers;
+   numberbank.innerHTML = inputnumbers;
   }
-  function createCardHeader(title) {
-    const header = document.createElement('div');
-    const h1 = document.createElement('h');
-    const text = document.createTextNode(title);
-    header.className = 'card-header';
-    h1.append(text);
-    header.appendChild(h1);
-    return header;
-  }
-  dataArray.forEach((item) => {
-    createCard(item);
-  });
- 
